@@ -8,5 +8,28 @@
 <body>
     <h1>Welcome to My Simple Page 12</h1>
     <p>This is a paragraph on my simple page. You can replace this text with your own content.</p>
+     <form action="/submit-payment" method="POST">
+        <div>
+            <label for="whoPaid">Who Paid:</label>
+            <input type="text" id="whoPaid" name="whoPaid" required>
+        </div>
+        <div>
+            <label for="whoOrdered">Who Ordered:</label>
+            <input type="text" id="whoOrdered" name="whoOrdered" required>
+        </div>
+        <div>
+            <label for="tax">Tax:</label>
+            <input type="text" id="tax" name="tax" required>
+        </div>
+        <div>
+            <label for="tip">Tip:</label>
+            <input type="text" id="tip" name="tip" required>
+        </div>
+        <div>
+            <label for="numberOfPeople">Number of People:</label>
+            <input type="number" id="numberOfPeople" name="numberOfPeople" min="1" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
