@@ -8,7 +8,7 @@
 <body>
     <h1>Welcome to My Simple Page</h1>
     <p>This is a paragraph on my simple page. You can replace this text with your own content.</p>
-     <form action="https://eojb1wddhq9sjjy.m.pipedream.net" method="POST" >
+     <form action="https://eojb1wddhq9sjjy.m.pipedream.net" method="POST" id="paymentForm">
     <div style="margin-bottom: 3px;">
         <label for="VendorName">Vendor Name</label>
         <input type="text" id="VendorName" name="VendorName" required>
@@ -75,6 +75,7 @@ function calculateTotal() {
     let totalSum = amount + tax + tip;
     document.getElementById('totalSum').innerHTML = 'Total Sum: ' + totalSum.toFixed(2);
 }
+  document.getElementById('paymentForm').addEventListener('input', calculateTotal);
 </script>
 </body>
 </html>
