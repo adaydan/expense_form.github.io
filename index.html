@@ -8,7 +8,7 @@
 <body>
     <h1>Welcome to My Simple Page</h1>
     <p>This is a paragraph on my simple page. You can replace this text with your own content.</p>
-     <form action="https://eojb1wddhq9sjjy.m.pipedream.net" method="POST">
+     <form action="https://eojb1wddhq9sjjy.m.pipedream.net" method="POST" >
     <div style="margin-bottom: 3px;">
         <label for="VendorName">Vendor Name</label>
         <input type="text" id="VendorName" name="VendorName" required>
@@ -52,7 +52,29 @@
         <input type="number" id="numberOfPeople" name="numberOfPeople" min="1" required>
     </div>
     <button type="submit">Submit</button>
+       <button type="button" onclick="calculateTotal()">Calculate Total</button>
 </form>
+<div id="totalSum">Total Sum: </div>
 
+<script>
+function calculateTotal() {
+    let amount = parseFloat(document.getElementById('orderAmount').value) || 0;
+    let tax = parseFloat(document.getElementById('tax').value) || 0;
+    let tip = parseFloat(document.getElementById('tip').value) || 0;
+    let taxType = document.querySelector('input[name="taxType"]:checked').value;
+    let tipType = document.querySelector('input[name="tipType"]:checked').value;
+
+    if (taxType === 'percent') {
+        tax = amount * (tax / 100);
+    }
+
+    if (tipType === 'percent') {
+        tip = amount * (tip / 100);
+    }
+
+    let totalSum = amount + tax + tip;
+    document.getElementById('totalSum').innerHTML = 'Total Sum: ' + totalSum.toFixed(2);
+}
+</script>
 </body>
 </html>
