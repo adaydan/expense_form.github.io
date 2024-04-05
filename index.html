@@ -21,7 +21,7 @@
         <label for="whoPaid">Who Paid:</label>
         <input type="text" id="whoPaid" name="whoPaid" required>
     </div>
-    <div style="margin-bottom: 20px;">
+    <div id="whoOrderedContainer" style="margin-bottom: 20px;">
         <label for="whoOrdered">Who Ordered:</label>
         <input type="text" id="whoOrdered0" name="whoOrdered[]" >
         <input type="text" id="whoOrdered1" name="whoOrdered[]" >
@@ -76,7 +76,27 @@ function calculateTotal() {
     let totalSum = amount + tax + tip;
     document.getElementById('totalSum').innerHTML = 'Total Sum: ' + totalSum.toFixed(2);
 }
+    function syncOrdered() {
+      let numberOfPeople = parseFloat(document.getElementById('numberOfPeople').value) || 1;
+      var container = document.getElementById('whoOrderedContainer');
+      var newInputCount = container.getElementsByTagName('input').length;
+
+    while (numberOfPeople != document.getElementById('whoOrderedContainer').getElementsByTagName('input').length){
+        if(numberOfPeople < document.getElementById('whoOrderedContainer').getElementsByTagName('input').length){
+             document.getElementById('whoOrderedContainer').removeChild(document.getElementById('whoOrderedContainer').lastChild);
+        }
+        if(numberOfPeople > document.getElementById('whoOrderedContainer').getElementsByTagName('input').length){
+            var newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.id = 'whoOrdered' + String(document.getElementById('whoOrderedContainer').getElementsByTagName('input').length);
+            newInput.name = 'whoOrdered[]';
+            container.appendChild(newInput);
+            
+        }
+      
+    }
   document.getElementById('paymentForm').addEventListener('input', calculateTotal);
+  document.getElementById('paymentForm').addEventListener('input', syncOrdered);
 </script>
 </body>
 </html>
