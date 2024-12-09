@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Page2 TESTTEST</title>
+    <title>Simple Page2</title>
 </head>
 <body>
     <h1>Welcome to The Chicago Expense Form</h1>
@@ -55,12 +55,7 @@
     <button type="submit">Submit</button>
 </form>
 <div id="totalSum">Total Sum: </div>
-<script src="https://prefect.chilipiper.com/concierge-js/cjs/concierge.js" crossorigin="anonymous" type="text/javascript"></script>
-<script>
-  ChiliPiper.deploy("prefect", "test", {
-    "formType": "HTML"
-})
-</script>
+
 <script>
 function calculateTotal() {
     let amount = parseFloat(document.getElementById('orderAmount').value) || 0;
